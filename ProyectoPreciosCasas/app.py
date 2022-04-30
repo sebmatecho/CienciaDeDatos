@@ -51,7 +51,7 @@ with col2:
   st.line_chart(chart_data['price'])
 
 
-houses = data[['id','lat','long','price','sqft_living']]
+houses = data[['lat','long','price','sqft_living']]
 
 houses['price_tier'] = houses['price'].apply(lambda x: 'tier 1' if x <= 321950 else
                                                       'tier 2' if (x > 321950) & (x <= 450000) else
