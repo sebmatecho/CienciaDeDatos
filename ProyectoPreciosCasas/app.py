@@ -58,7 +58,7 @@ st.dataframe(data)
 
 ## Filtros
 
-construccion = st.slider('Construcción después de:', int(data['yr_built'].min()),int(data['yr_built'].max()),int(data['yr_built'].max()) )
+construccion = st.slider('Construcción después de:', int(data['yr_built'].min()),int(data['yr_built'].max()),1991)
 
 tier = st.multiselect(
      'Banda de precios',
@@ -68,7 +68,7 @@ tier = st.multiselect(
 zipcod = st.multiselect(
      'Códigos postales',
       list(data['zipcode'].unique()),
-      list(data['zipcode'].unique())[:10])
+      list(data['zipcode'].unique()))
 
 
 
@@ -104,7 +104,7 @@ mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start
 markercluster = MarkerCluster().add_to(mapa)
 for nombre, fila in data.iterrows():
     folium.Marker([fila['lat'],fila['long']],
-                  popup = 'Propiedad Vendida en ${}, en {}.Características: {} habitaciones, {} baños, constuida en {}, área de {} pies cuadrados. Precio por pie cuadrado: {}'.format(
+                popup = 'Precio: ${}, \n Fecha: {} \n {} habitaciones \n {} baños \n constuida en {} \n área de {} pies cuadrados \n Precio por pie cuadrado: {}'.format(
                   fila['price'],
                   fila['date'],
                   fila['bedrooms'],
