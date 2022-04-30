@@ -7,7 +7,10 @@ from plotly import express as px
 
 st.title('Dinámica Inmobiliaria en King County')
 
-data = pd.read_csv('data/kc_house_data.csv')
+# data = pd.read_csv('data/kc_house_data.csv')
+
+url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
+data = pd.read_csv(url,index_col=0,parse_dates=[0])
 
 data['date'] = pd.to_datetime(data['date'], format = '%Y-%m-%d')
 data['yr_built'] = pd.to_datetime(data['yr_built'], format ='%Y').dt.year
@@ -48,7 +51,7 @@ with col2:
   st.line_chart(chart_data['price'])
 
 
-houses = data[['id','lat','long','price','sqft_living']]
+houses = data[['lat','long','price','sqft_living']]
 
 houses['price_tier'] = houses['price'].apply(lambda x: 'tier 1' if x <= 321950 else
                                                       'tier 2' if (x > 321950) & (x <= 450000) else
