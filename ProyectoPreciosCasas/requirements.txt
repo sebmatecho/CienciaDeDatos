@@ -4,3 +4,5 @@ pandas
 seaborn
 numpy
 plotly
+folium
+streamlit_folium
