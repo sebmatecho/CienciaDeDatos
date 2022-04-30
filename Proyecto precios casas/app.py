@@ -7,7 +7,12 @@ from plotly import express as px
 
 st.title('Dinámica Inmobiliaria en King County')
 
-data = pd.read_csv('data/kc_house_data.csv')
+# data = pd.read_csv('data/kc_house_data.csv')
+
+url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
+data = pd.read_csv(url,index_col=0,parse_dates=[0])
+
+
 
 data['date'] = pd.to_datetime(data['date'], format = '%Y-%m-%d')
 data['yr_built'] = pd.to_datetime(data['yr_built'], format ='%Y').dt.year
