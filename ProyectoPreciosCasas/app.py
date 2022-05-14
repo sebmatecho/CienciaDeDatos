@@ -102,14 +102,14 @@ if 'Habitaciones' in OptFiltro:
      min_habs, max_habs = st.select_slider(
      'Número de Habitaciones',
      options=[0,1,2,3,4,5,6,7,8,9,10,11],
-     value=(0,10))
+     value=(data['bedrooms'].min(),data['bedrooms'].max()))
      data = data[(data['bedrooms']>= min_habs)&(data['bedrooms']<= max_habs)]
 
 if 'Baños' in OptFiltro: 
      min_banhos, max_banhos = st.select_slider(
      'Número de baños ',
      options=list(sorted(set(data['bathrooms']))),
-     value=(0,5))
+     value=(data['bathrooms'].min(), data['bathrooms'].max()))
      data = data[(data['bathrooms']>= min_banhos)&(data['bathrooms']<= max_banhos)]
 
 if 'Área construida (pies cuadrados)' in OptFiltro: 
@@ -120,31 +120,30 @@ if 'Pisos' in OptFiltro:
      min_pisos, max_pisos = st.select_slider(
      'Número de Habitaciones',
      options=list(sorted(set(data['floors']))),
-     value=(1,3))
+     value=(data['floors'].min(),data['floors'].max()))
      data = data[(data['floors']>= min_pisos)&(data['floors']<= max_pisos)]
 
 if 'Vista al agua' in OptFiltro: 
      min_vista, max_vista = st.select_slider(
      'Puntaje de vista al agua',
      options=list(sorted(set(data['view']))),
-     value=(1,3))
+     value=(data['view'].min(),data['view'].max()))
      data = data[(data['view']>= min_vista)&(data['view']<= max_vista)]
 
 if 'Evaluación de la propiedad' in OptFiltro:
      min_cond, max_cond = st.select_slider(
      'Índice de evaluación de la propiedad',
      options=list(sorted(set(data['grade']))),
-     value=(4,7))
+     value=(data['grade'].min(),data['grade'].max()))
      data = data[(data['grade']>= min_cond)&(data['grade']<= max_cond)]
 
 if 'Condición' in OptFiltro:
      min_condi, max_condi = st.select_slider(
      'Índice de evaluación de la propiedad',
      options=list(sorted(set(data['condition']))),
-     value=(2,4))
+     value=(data['condition'].min(),data['condition'].max()))
      data = data[(data['condition']>= min_condi)&(data['condition']<= max_condi)]
 
-list(sorted(set(data['view'])))
 
 
 # Estadística Descriptiva 
