@@ -106,7 +106,7 @@ density_map = folium.Map(location = [data['lat'].mean(),data['long'].mean()],
 marker_cluster = MarkerCluster().add_to(density_map)
 
 for name, row in df.iterrows(): 
-    folium.Marker([row['lat'], row['long']],
+    folium.Marker([row['lat'], ro<w['long']],
                 popup = 'Sold in R${0} on: {1}. Features: {2} sqft, {3} bedrooms, {4} bathrooms, year built:{5}'.format(
                     row['price'], 
                     row['date'],
