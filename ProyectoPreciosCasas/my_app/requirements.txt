@@ -8,5 +8,4 @@ numpy
 plotly
 streamlit_folium
 boto3
-tempfile
 json
