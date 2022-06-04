@@ -19,14 +19,9 @@ def get_data():
 data = get_data()
 X = pd.DataFrame()
 
-# client = boto3.client('s3',
-#         aws_access_key_id = st.secrets['AWSAccessKeyId'],
-#         aws_secret_access_key = st.secrets['AWSSecretKey'])
-
-
 client = boto3.client('s3',
-        aws_access_key_id ='AKIA23XNTKISY2SOLUIT',
-        aws_secret_access_key = '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')
+        aws_access_key_id = st.secrets['aws_access_key_id'],
+        aws_secret_access_key = st.secrets['aws_secret_access_key'])
 
 
 
