@@ -1,5 +1,5 @@
 folium
-joblib
+joblib==2.1.0
 matplotlib
 streamlit
 pandas
