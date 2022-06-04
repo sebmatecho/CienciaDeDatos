@@ -6,3 +6,6 @@ numpy
 plotly
 folium
 streamlit_folium
+boto3
+tempfile
+json
