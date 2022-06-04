@@ -9,3 +9,4 @@ plotly
 streamlit_folium
 boto3
 sklearn
+xgboost
