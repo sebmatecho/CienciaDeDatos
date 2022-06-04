@@ -1,10 +1,10 @@
+folium
 matplotlib
 streamlit
 pandas
 seaborn
 numpy
 plotly
-folium
 streamlit_folium
 boto3
 tempfile
