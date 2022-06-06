@@ -20,9 +20,8 @@ data = get_data()
 X = pd.DataFrame()
 
 client = boto3.client('s3',
-        aws_access_key_id = st.secrets['aws_access_key_id'],
-        aws_secret_access_key = st.secrets['aws_secret_access_key'])
-
+        aws_access_key_id =  st.secrets["AWSAccessKeyId"],
+        aws_secret_access_key = st.secrets["AWSSecretKey"])
 
 
 banhos = st.sidebar.select_slider(
