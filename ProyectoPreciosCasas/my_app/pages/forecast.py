@@ -161,6 +161,8 @@ if st.sidebar.button('Los parámetros han sido cargados. Calcular precio'):
 #     st.write('El precio sugerido es:', )
      st.metric("Precio Sugerido", np.expm1(precio), )
 else:
+     st.snow()
+     st.error('This is an error')
      st.markdown("""
      # Seleccione los parámatros de la propiedad a estimar el precio. 
      """)
