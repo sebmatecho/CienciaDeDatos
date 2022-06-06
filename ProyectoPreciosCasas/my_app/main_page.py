@@ -183,72 +183,72 @@ if 'Condición' in OptFiltro:
 
 # Mapas 
 
-# # info geojson
-# url2 = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/KingCount.geojson'
-# col1, col2 = st.columns(2)
-# with col1:
-#      st.header("Densidad de casas disponibles por código postal")
-#      data_aux = data[['id','zipcode']].groupby('zipcode').count().reset_index()
-#      custom_scale = (data_aux['id'].quantile((0,0.2,0.4,0.6,0.8,1))).tolist()
+# info geojson
+url2 = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/KingCount.geojson'
+col1, col2 = st.columns(2)
+with col1:
+     st.header("Densidad de casas disponibles por código postal")
+     data_aux = data[['id','zipcode']].groupby('zipcode').count().reset_index()
+     custom_scale = (data_aux['id'].quantile((0,0.2,0.4,0.6,0.8,1))).tolist()
 
-#      mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=8)
-#      folium.Choropleth(geo_data=url2, 
-#                     data=data_aux,
-#                     key_on='feature.properties.ZIPCODE',
-#                     columns=['zipcode', 'id'],
-#                     threshold_scale=custom_scale,
-#                     fill_color='YlOrRd',
-#                     highlight=True).add_to(mapa)
-#      folium_static(mapa)
+     mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=8)
+     folium.Choropleth(geo_data=url2, 
+                    data=data_aux,
+                    key_on='feature.properties.ZIPCODE',
+                    columns=['zipcode', 'id'],
+                    threshold_scale=custom_scale,
+                    fill_color='YlOrRd',
+                    highlight=True).add_to(mapa)
+     folium_static(mapa)
 
-# with col2: 
-#      st.header("Precios de casas disponibles por código postal")
-#      data_aux = data[['price','zipcode']].groupby('zipcode').mean().reset_index()
-#      custom_scale = (data_aux['price'].quantile((0,0.2,0.4,0.6,0.8,1))).tolist()
+with col2: 
+     st.header("Precios de casas disponibles por código postal")
+     data_aux = data[['price','zipcode']].groupby('zipcode').mean().reset_index()
+     custom_scale = (data_aux['price'].quantile((0,0.2,0.4,0.6,0.8,1))).tolist()
 
-#      mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=8)
-#      folium.Choropleth(geo_data=url2, 
-#                     data=data_aux,
-#                     key_on='feature.properties.ZIPCODE',
-#                     columns=['zipcode', 'price'],
-#                     threshold_scale=custom_scale,
-#                     fill_color='YlOrRd',
-#                     highlight=True).add_to(mapa)
-#      folium_static(mapa)
+     mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=8)
+     folium.Choropleth(geo_data=url2, 
+                    data=data_aux,
+                    key_on='feature.properties.ZIPCODE',
+                    columns=['zipcode', 'price'],
+                    threshold_scale=custom_scale,
+                    fill_color='YlOrRd',
+                    highlight=True).add_to(mapa)
+     folium_static(mapa)
 
 
-# col1, col2 = st.columns(2)
-# with col1:
-#      st.header("Costo de pie cuadrado por código postal")
-#      data_aux = data[['price/sqft','zipcode']].groupby('zipcode').mean().reset_index()
-#      custom_scale = (data_aux['price/sqft'].quantile((0,0.2,0.4,0.6,0.8,1))).tolist()
+col1, col2 = st.columns(2)
+with col1:
+     st.header("Costo de pie cuadrado por código postal")
+     data_aux = data[['price/sqft','zipcode']].groupby('zipcode').mean().reset_index()
+     custom_scale = (data_aux['price/sqft'].quantile((0,0.2,0.4,0.6,0.8,1))).tolist()
 
-#      mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=8)
-#      folium.Choropleth(geo_data=url2, 
-#                     data=data_aux,
-#                     key_on='feature.properties.ZIPCODE',
-#                     columns=['zipcode', 'price/sqft'],
-#                     threshold_scale=custom_scale,
-#                     fill_color='YlOrRd',
-#                     highlight=True).add_to(mapa)
-#      folium_static(mapa)
+     mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=8)
+     folium.Choropleth(geo_data=url2, 
+                    data=data_aux,
+                    key_on='feature.properties.ZIPCODE',
+                    columns=['zipcode', 'price/sqft'],
+                    threshold_scale=custom_scale,
+                    fill_color='YlOrRd',
+                    highlight=True).add_to(mapa)
+     folium_static(mapa)
 
-# with col2: 
-#      st.header("Ubicación y detalles de casas disponibles")
-#      mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=9)
-#      markercluster = MarkerCluster().add_to(mapa)
-#      for nombre, fila in data.iterrows():
-#           folium.Marker([fila['lat'],fila['long']],
-#                          popup = 'Precio: ${}, \n Fecha: {} \n {} habitaciones \n {} baños \n constuida en {} \n área de {} pies cuadrados \n Precio por pie cuadrado: {}'.format(
-#                          fila['price'],
-#                          fila['date'],
-#                          fila['bedrooms'],
-#                          fila['bathrooms'],
-#                          fila['yr_built'], 
-#                          fila['sqft_living'], 
-#                          fila['price/sqft'])
-#           ).add_to(markercluster)
-#      folium_static(mapa)
+with col2: 
+     st.header("Ubicación y detalles de casas disponibles")
+     mapa = folium.Map(location=[data['lat'].mean(), data['long'].mean()], zoom_start=9)
+     markercluster = MarkerCluster().add_to(mapa)
+     for nombre, fila in data.iterrows():
+          folium.Marker([fila['lat'],fila['long']],
+                         popup = 'Precio: ${}, \n Fecha: {} \n {} habitaciones \n {} baños \n constuida en {} \n área de {} pies cuadrados \n Precio por pie cuadrado: {}'.format(
+                         fila['price'],
+                         fila['date'],
+                         fila['bedrooms'],
+                         fila['bathrooms'],
+                         fila['yr_built'], 
+                         fila['sqft_living'], 
+                         fila['price/sqft'])
+          ).add_to(markercluster)
+     folium_static(mapa)
 
 
 # Estadística Descriptiva 
