@@ -146,7 +146,7 @@ En esta pestaña, un modelo de Machine Learning ha sido disponibilizado para gen
     """)
 
 
-if st.button('Los parámetros han sido cargados. Calcular precio'):
+if st.sidebar.button('Los parámetros han sido cargados. Calcular precio'):
 #     modelo_final = joblib.load('../modelos/xbg_final.sav')
      with tempfile.TemporaryFile() as fp: 
           client.download_fileobj(Fileobj = fp, 
@@ -161,7 +161,7 @@ if st.button('Los parámetros han sido cargados. Calcular precio'):
 #     st.write('El precio sugerido es:', )
      st.metric("Precio Sugerido", np.expm1(precio), )
 else:
-     st.write('Por favor, ingrese los parámetros de la propiedad')
+     st.write('Ingrese parámetros de propiedad a estimar valor')
 
 
     
