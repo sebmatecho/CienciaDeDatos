@@ -120,15 +120,32 @@ X.loc[0,'property_age'] = edad
 
 variables = ['bedrooms', 'bathrooms', 'sqft_living', 'floors', 'waterfront', 'view', 'condition', 'grade', 'yr_renovated_dummy', 'property_age']
 
-for nombre in variables: 
+# for nombre in variables: 
+#      with tempfile.TemporaryFile() as fp: 
+#           client.download_fileobj(Fileobj = fp, 
+#                                    Bucket = 'precioscasas',
+#                                    Key = nombre+'.sav'
+#           )
+#           fp.seek(0)
+#           scaler = joblib.load(fp)
+#           X[[nombre]] = scaler.transform(X[[nombre]])
+
+@st.cache
+def transformation(nombre): 
      with tempfile.TemporaryFile() as fp: 
-          client.download_fileobj(Fileobj = fp, 
-                                   Bucket = 'precioscasas',
-                                   Key = nombre+'.sav'
-          )
-          fp.seek(0)
-          scaler = joblib.load(fp)
-          X[[nombre]] = scaler.transform(X[[nombre]])
+               client.download_fileobj(Fileobj = fp, 
+                                        Bucket = 'precioscasas',
+                                        Key = nombre+'.sav'
+               )
+               fp.seek(0)
+               scaler = joblib.load(fp)
+     return scaler
+
+     
+for nombre in variables: 
+     scaler_ = transformation(nombre)
+     X[[nombre]] = scaler_.transform(X[[nombre]])
+
 
 st.markdown("""
 En esta pestaña, un modelo de Machine Learning ha sido disponibilizado para generar pronósticos de precios  basado en las propuidades del inmueble. El usuario deberá suministrar las características de tal inmueble utilizando el menú de la barra izquierda. A continuación se definen la información requerida. :
@@ -147,7 +164,7 @@ En esta pestaña, un modelo de Machine Learning ha sido disponibilizado para gen
 
 
 if st.sidebar.button('Los parámetros han sido cargados. Calcular precio'):
-#     modelo_final = joblib.load('../modelos/xbg_final.sav')
+
      with tempfile.TemporaryFile() as fp: 
           client.download_fileobj(Fileobj = fp, 
                                    Bucket = 'precioscasas',
