@@ -7,4 +7,4 @@ En este repositorio vamos a alojar los materiales para la versión 2022-1 del Di
 
 [Comunidad de Slack](https://join.slack.com/t/ciencia-de-datos-corp/shared_invite/zt-170dqxtf6-8eRsGcKdOh__S9jtuE5LZw)
 
-[Dashboard Precios casas](https://share.streamlit.io/sebmatecho/cienciadedatos/ProyectoPreciosCasas/app.py)
+[Dashboard Precios casas](https://share.streamlit.io/sebmatecho/cienciadedatos/ProyectoPreciosCasas/my_app/main_page.py/forecast)
