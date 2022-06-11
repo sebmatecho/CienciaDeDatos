@@ -154,7 +154,7 @@ def transformation(nombre):
      
 for nombre in variables: 
      scaler_inner = transformation(nombre)
-     X[[nombre]] = scaler_inner.transform(X[[nombre].values)
+     X[[nombre]] = scaler_inner.transform(X[[nombre].values())
 
 
 st.markdown("""
