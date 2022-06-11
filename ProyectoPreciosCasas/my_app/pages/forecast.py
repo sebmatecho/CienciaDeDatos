@@ -144,7 +144,7 @@ variables = ['bedrooms', 'bathrooms', 'sqft_living', 'waterfront', 'view', 'cond
 #           scaler = joblib.load(fp)
 #           X[[nombre]] = scaler.transform(X[[nombre]])
 
-@st.cache
+# @st.cache
 def transformation(nombre): 
      with tempfile.TemporaryFile() as fp: 
                client.download_fileobj(Fileobj = fp, 
