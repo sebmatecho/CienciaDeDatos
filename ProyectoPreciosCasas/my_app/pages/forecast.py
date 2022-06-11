@@ -22,14 +22,15 @@ def get_data():
      return pd.read_csv(url)
 
 data = get_data()
-X = pd.DataFrame()
+
+
 
 client = boto3.client('s3',
         aws_access_key_id =  st.secrets["AWSAccessKeyId"],
         aws_secret_access_key = st.secrets["AWSSecretKey"]
         )
 
-
+X = pd.DataFrame()
 banhos = st.sidebar.select_slider(
           'Número de Baños',
           options=list(sorted(set(data['bathrooms']))))
