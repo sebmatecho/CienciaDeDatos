@@ -8,5 +8,5 @@ numpy
 plotly
 streamlit_folium
 boto3
-scikit-learn==0.22.2.post1
+scikit-learn==1.1.1
 xgboost==1.4.2.
