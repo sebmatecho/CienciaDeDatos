@@ -20,14 +20,14 @@ st.set_page_config(page_title='App - Venta de casas',
                     page_icon=':house',  
                     initial_sidebar_state="expanded")
 
-st.sidebar.markdown("# Parámetros")
+
 
 
 st.title('Dinámica Inmobiliaria en King County')
 st.header('Propuesto por [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/)')
 
 
-@st.cache
+# @st.cache
 def get_data():
      url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
      return pd.read_csv(url)
@@ -35,7 +35,7 @@ def get_data():
 data = get_data()
 data_ref = data.copy()
 
-
+st.sidebar.markdown("# Parámetros")
 data['date'] = pd.to_datetime(data['date'], format = '%Y-%m-%d').dt.date
 data['yr_built']= pd.to_datetime(data['yr_built'], format = '%Y').dt.year
 # data['yr_renovated'] = data['yr_renovated'].apply(lambda x: pd.to_datetime(x, format ='%Y') if x >0 else x )
