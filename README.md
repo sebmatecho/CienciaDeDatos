@@ -8,4 +8,4 @@ Este cambio ha sido realizado a través de VsCode :)
 
 [Comunidad de Slack](https://join.slack.com/t/ciencia-de-datos-corp/shared_invite/zt-170dqxtf6-8eRsGcKdOh__S9jtuE5LZw)
 
-[Dashboard Precios casas](https://share.streamlit.io/sebmatecho/cienciadedatos/ProyectoPreciosCasas/app.py)
+[Dashboard Precios casas](https://share.streamlit.io/sebmatecho/cienciadedatos/ProyectoPreciosCasas/my_app/main_page.py/forecast)
