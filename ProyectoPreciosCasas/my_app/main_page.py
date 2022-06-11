@@ -14,13 +14,6 @@ from matplotlib.pyplot        import figimage
 from distutils.fancy_getopt   import OptionDummy
 
 
-def main_page():
-    st.markdown("# Main page 🎈")
-    st.sidebar.markdown("# Main page 🎈")
-
-def page2():
-    st.markdown("# Page 2 ❄️")
-    st.sidebar.markdown("# Page 2 ❄️")
 
 st.set_page_config(page_title='App - Venta de casas',
                     layout="wide", 
@@ -45,7 +38,7 @@ def get_data():
 
 data = get_data()
 data_ref = data.copy()
-data = data.head(100)
+# data = data.head(100)
 
 
 data['date'] = pd.to_datetime(data['date'], format = '%Y-%m-%d').dt.date
