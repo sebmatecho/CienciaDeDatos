@@ -20,8 +20,11 @@ data = get_data()
 X = pd.DataFrame()
 
 client = boto3.client('s3',
-        aws_access_key_id =  st.secrets["AWSAccessKeyId"],
-        aws_secret_access_key = st.secrets["AWSSecretKey"])
+        aws_access_key_id =  'AKIA23XNTKISQPFXU4OQ',
+        #st.secrets["AWSAccessKeyId"],
+        aws_secret_access_key = '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'
+        #st.secrets["AWSSecretKey"]
+        )
 
 
 banhos = st.sidebar.select_slider(
@@ -32,11 +35,11 @@ X.loc[0,'bathrooms'] = banhos
 # scaler = joblib.load('../parameters/bathrooms.sav')
 # X[['bathrooms']] = scaler.transform(X[['bathrooms']])
 
-pisos = st.sidebar.select_slider(
-          'Número de Pisos',
-          options=list(sorted(set(data['floors']))))
+# pisos = st.sidebar.select_slider(
+#           'Número de Pisos',
+#           options=list(sorted(set(data['floors']))))
 
-X.loc[0,'floors'] = pisos
+# X.loc[0,'floors'] = pisos
 # scaler = joblib.load('../parameters/floors.sav')
 # X[['floors']] = scaler.transform(X[['floors']])
 
@@ -117,8 +120,15 @@ X.loc[0,'property_age'] = edad
 # scaler = joblib.load('../parameters/property_age.sav')
 # X[['property_age']] = scaler.transform(X[['property_age']])
 
+lat = st.sidebar.slider('Latitud', 47.1559,47.7776, 47.46675)
 
-variables = ['bedrooms', 'bathrooms', 'sqft_living', 'floors', 'waterfront', 'view', 'condition', 'grade', 'yr_renovated_dummy', 'property_age']
+X.loc[0,'lat'] = lat
+
+long = st.sidebar.slider('Longitud',-122.503 ,-121.315, -121.9089)
+
+X.loc[0,'long'] = long
+
+variables = ['bedrooms', 'bathrooms', 'sqft_living', 'waterfront', 'view', 'condition', 'grade', 'yr_renovated_dummy', 'property_age','lat','long']
 
 # for nombre in variables: 
 #      with tempfile.TemporaryFile() as fp: 
@@ -135,7 +145,7 @@ def transformation(nombre):
      with tempfile.TemporaryFile() as fp: 
                client.download_fileobj(Fileobj = fp, 
                                         Bucket = 'precioscasas',
-                                        Key = nombre+'.sav'
+                                        Key = nombre+'.pkl'
                )
                fp.seek(0)
                scaler = joblib.load(fp)
@@ -143,8 +153,8 @@ def transformation(nombre):
 
      
 for nombre in variables: 
-     scaler_ = transformation(nombre)
-     X[[nombre]] = scaler_.transform(X[[nombre]])
+     scaler_inner = transformation(nombre)
+     X[[nombre]] = scaler_inner.transform(X[[nombre]])
 
 
 st.markdown("""
