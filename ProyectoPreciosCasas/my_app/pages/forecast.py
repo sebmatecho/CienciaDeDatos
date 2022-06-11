@@ -7,7 +7,10 @@ import numpy as np
 import boto3
 import tempfile
 
-
+st.set_page_config(page_title='App - Pronóstico',
+                    layout="wide", 
+                    page_icon=':house',  
+                    initial_sidebar_state="expanded")
 
 st.title("Pronosticando precios de casas")
 st.sidebar.markdown("Características")
