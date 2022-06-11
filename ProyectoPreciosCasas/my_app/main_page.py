@@ -6,15 +6,32 @@ import seaborn as sns
 import streamlit as st
 import matplotlib.pyplot as plt
 
+from PIL                      import Image
 from plotly                   import express as px
 from folium.plugins           import MarkerCluster
 from streamlit_folium         import folium_static
 from matplotlib.pyplot        import figimage
 from distutils.fancy_getopt   import OptionDummy
 
-# st.sidebar.markdown("# Parámetros")
 
-st.set_page_config(layout="wide", page_icon="🧊")
+
+
+# st.sidebar.markdown("# Parámetros")
+img = Image.open('../img/house-icon.png')
+st.set_page_config(page_title='App - Venta de casas',
+                    layout="wide", 
+                    page_icon=img,  initial_sidebar_state="expanded",
+     menu_items={
+         'Get Help': 'https://www.extremelycoolapp.com/help',
+         'Report a bug': "https://www.extremelycoolapp.com/bug",
+         'About': "# This is a header. This is an *extremely* cool app!"
+     })
+# st.set_page_config(layout="wide", page_icon="🧊")
+
+st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
 
 st.title('Dinámica Inmobiliaria en King County')
 st.header('Propuesto por [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/)')

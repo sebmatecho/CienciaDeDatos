@@ -1,4 +1,5 @@
 from re import template
+from PIL import Image
 import streamlit as st
 import pandas as pd
 import joblib
@@ -6,12 +7,14 @@ import numpy as np
 import boto3
 import tempfile
 
-st.set_page_config(layout="wide", page_icon="chart_with_upwards_trend")
+st.markdown(""" <style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style> """, unsafe_allow_html=True)
+
+
 st.title("Pronosticando precios de casas")
 st.sidebar.markdown("Características")
-
-
-
 def get_data():
      url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
      return pd.read_csv(url)
@@ -20,10 +23,8 @@ data = get_data()
 X = pd.DataFrame()
 
 client = boto3.client('s3',
-        aws_access_key_id =  'AKIA23XNTKISQPFXU4OQ',
-        #st.secrets["AWSAccessKeyId"],
-        aws_secret_access_key = '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'
-        #st.secrets["AWSSecretKey"]
+        aws_access_key_id =  st.secrets["AWSAccessKeyId"],
+        aws_secret_access_key = st.secrets["AWSSecretKey"]
         )
 
 
