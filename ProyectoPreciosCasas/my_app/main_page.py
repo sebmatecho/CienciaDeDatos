@@ -22,10 +22,6 @@ st.set_page_config(page_title='App - Venta de casas',
 
 st.sidebar.markdown("# Parámetros")
 
-st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
 
 st.title('Dinámica Inmobiliaria en King County')
 st.header('Propuesto por [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/)')

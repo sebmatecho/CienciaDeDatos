@@ -7,10 +7,6 @@ import numpy as np
 import boto3
 import tempfile
 
-st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
 
 
 st.title("Pronosticando precios de casas")
