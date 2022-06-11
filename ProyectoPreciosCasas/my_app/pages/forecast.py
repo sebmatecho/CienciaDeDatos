@@ -15,6 +15,7 @@ footer {visibility: hidden;}
 
 st.title("Pronosticando precios de casas")
 st.sidebar.markdown("Características")
+@st.cache
 def get_data():
      url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
      return pd.read_csv(url)
