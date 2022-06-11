@@ -14,19 +14,20 @@ from matplotlib.pyplot        import figimage
 from distutils.fancy_getopt   import OptionDummy
 
 
+def main_page():
+    st.markdown("# Main page 🎈")
+    st.sidebar.markdown("# Main page 🎈")
 
+def page2():
+    st.markdown("# Page 2 ❄️")
+    st.sidebar.markdown("# Page 2 ❄️")
 
-# st.sidebar.markdown("# Parámetros")
-img = Image.open('../img/house-icon.png')
 st.set_page_config(page_title='App - Venta de casas',
                     layout="wide", 
-                    page_icon=img,  initial_sidebar_state="expanded",
-     menu_items={
-         'Get Help': 'https://www.extremelycoolapp.com/help',
-         'Report a bug': "https://www.extremelycoolapp.com/bug",
-         'About': "# This is a header. This is an *extremely* cool app!"
-     })
-# st.set_page_config(layout="wide", page_icon="🧊")
+                    page_icon=':house',  
+                    initial_sidebar_state="expanded")
+
+st.sidebar.markdown("# Parámetros")
 
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
