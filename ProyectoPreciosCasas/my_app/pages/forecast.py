@@ -9,7 +9,7 @@ import tempfile
 
 st.set_page_config(page_title='App - Pronóstico',
                     layout="wide", 
-                    page_icon='fa-solid fa-chart-line',  
+                    page_icon='🚀',  
                     initial_sidebar_state="expanded")
 
 st.title("Pronosticando precios de casas")
