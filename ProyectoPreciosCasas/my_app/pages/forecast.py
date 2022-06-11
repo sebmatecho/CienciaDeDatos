@@ -7,10 +7,10 @@ import numpy as np
 import boto3
 import tempfile
 
-st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
+# st.markdown(""" <style>
+# #MainMenu {visibility: hidden;}
+# footer {visibility: hidden;}
+# </style> """, unsafe_allow_html=True)
 
 
 st.title("Pronosticando precios de casas")
@@ -144,7 +144,7 @@ variables = ['bedrooms', 'bathrooms', 'sqft_living', 'waterfront', 'view', 'cond
 #           scaler = joblib.load(fp)
 #           X[[nombre]] = scaler.transform(X[[nombre]])
 
-@st.cache
+# @st.cache
 def transformation(nombre): 
      with tempfile.TemporaryFile() as fp: 
                client.download_fileobj(Fileobj = fp, 
