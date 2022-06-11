@@ -149,7 +149,7 @@ def transformation(nombre):
      with tempfile.TemporaryFile() as fp: 
                client.download_fileobj(Fileobj = fp, 
                                         Bucket = 'precioscasas',
-                                        Key = nombre+'.sav'
+                                        Key = nombre+'.pkl'
                )
                fp.seek(0)
                scaler = joblib.load(fp)
