@@ -12,7 +12,7 @@ import tempfile
 st.title("Pronosticando precios de casas")
 st.sidebar.markdown("Características")
 
-# @st.cache
+@st.cache
 def get_data():
      url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
      return pd.read_csv(url)
@@ -140,12 +140,12 @@ variables = ['bedrooms', 'bathrooms', 'sqft_living', 'waterfront', 'view', 'cond
 #           scaler = joblib.load(fp)
 #           X[[nombre]] = scaler.transform(X[[nombre]])
 
-# @st.cache
+@st.cache
 def transformation(nombre): 
      with tempfile.TemporaryFile() as fp: 
                client.download_fileobj(Fileobj = fp, 
                                         Bucket = 'precioscasas',
-                                        Key = nombre+'.pkl'
+                                        Key = nombre+'.sav'
                )
                fp.seek(0)
                scaler = joblib.load(fp)
