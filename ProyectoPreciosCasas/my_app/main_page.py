@@ -22,10 +22,10 @@ st.set_page_config(page_title='App - Venta de casas',
 
 st.sidebar.markdown("# Parámetros")
 
-st.markdown(""" <style>
-#MainMenu {visibility: hidden;}
-footer {visibility: hidden;}
-</style> """, unsafe_allow_html=True)
+# st.markdown(""" <style>
+# #MainMenu {visibility: hidden;}
+# footer {visibility: hidden;}
+# </style> """, unsafe_allow_html=True)
 
 st.title('Dinámica Inmobiliaria en King County')
 st.header('Propuesto por [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/)')
@@ -38,7 +38,6 @@ def get_data():
 
 data = get_data()
 data_ref = data.copy()
-# data = data.head(100)
 
 
 data['date'] = pd.to_datetime(data['date'], format = '%Y-%m-%d').dt.date
