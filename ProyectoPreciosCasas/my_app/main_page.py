@@ -27,7 +27,7 @@ st.title('Dinámica Inmobiliaria en King County')
 st.header('Propuesto por [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/)')
 
 
-# @st.cache
+@st.cache
 def get_data():
      url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
      return pd.read_csv(url)
