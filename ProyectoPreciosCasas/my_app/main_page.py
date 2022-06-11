@@ -20,13 +20,14 @@ st.title('Dinámica Inmobiliaria en King County')
 st.header('Propuesto por [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/)')
 
 
-
+@st.cache
 def get_data():
      url = 'https://raw.githubusercontent.com/sebmatecho/CienciaDeDatos/master/ProyectoPreciosCasas/data/kc_house_data.csv'
      return pd.read_csv(url)
 
 data = get_data()
 data_ref = data.copy()
+data = data.head(100)
 
 
 data['date'] = pd.to_datetime(data['date'], format = '%Y-%m-%d').dt.date
@@ -282,6 +283,7 @@ with col1:
      data['dormitory_type']=data['bedrooms'].apply(lambda x: 'Estudio' if x <=1 else 'Apartamento' if x==2 else 'Casa' )
      df = data[['yr_built', 'price','dormitory_type']].groupby(['yr_built','dormitory_type']).mean().reset_index()
      with sns.axes_style("darkgrid"):
+          plt.style.use('dark_background')
           fig = plt.figure(figsize=(7,7)) # try different values
           fig = sns.lineplot(x ='yr_built', y= 'price', data = df, hue="dormitory_type", style="dormitory_type")
           fig.set_xlabel("Año de Construcción", fontsize = 17)
@@ -295,6 +297,7 @@ with col2:
      st.write('Evolución del precio por pie cuadrado por tipo de propiedad y año de construcción')
      df = data[['yr_built', 'price/sqft','dormitory_type']].groupby(['yr_built','dormitory_type']).mean().reset_index()
      with sns.axes_style("darkgrid"):
+          plt.style.use('dark_background')
           fig = plt.figure(figsize=(7,7)) # try different values
           fig = sns.lineplot(x ='yr_built', y= 'price/sqft', data = df, hue="dormitory_type", style="dormitory_type")
           fig.set_xlabel("Año de Construcción", fontsize = 17)
